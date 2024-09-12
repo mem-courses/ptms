@@ -4,7 +4,7 @@
   course: "PT & MS",
   course_fullname: "Probability Theory & Mathematical Statistics",
   course_code: "MATH2432F",
-  title: "Chapter 1. Mathematical Preliminaries",
+  title: "Homework #1",
   authors: (
     (
       name: "memset0",
