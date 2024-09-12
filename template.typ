@@ -143,14 +143,14 @@
 #let hl(x) = strong(text(x, font: ("Cambria", ..font_hei), number-type: "old-style"))
 #let hw(name, it, jt) = {
   block(width: 100%)[
-    #v(0.4em)
+    #v(0.25em)
     #problem_counter.update(x => (x + 1))
     #block(inset: 0.6em, stroke: 0.5pt + gray, radius: 0.3em, fill: luma(250))[
-      #hl[Exercise #name:]
+      #hl[Ex. #name:]
       #it#fake_par#fake_par
     ]
     #jt
-    #v(-0.25em)
+    // #v(-0.25em)
   ]
 }
 
