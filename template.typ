@@ -145,7 +145,7 @@
   block(width: 100%)[
     #v(0.25em)
     #problem_counter.update(x => (x + 1))
-    #block(inset: 0.6em, stroke: 0.5pt + gray, radius: 0.3em, fill: luma(250))[
+    #block(inset: 0.6em, stroke: 0.5pt + gray, radius: 0.3em, fill: luma(250), width: 100%)[
       #hl[Ex. #name:]
       #it#fake_par#fake_par
     ]
