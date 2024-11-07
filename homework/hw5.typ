@@ -137,7 +137,34 @@
 
   *(2)* 求 $Z$ 的密度函数.
 ][
-  *(1)* 由 $Y = e^X$ 知 $X = ln Y$，故
+  *(1)* 已知 $X$ 的概率密度函数为：
+  $
+    f_X (x) = 1 / sqrt(2 pi) e^(-x^2"/"2)
+  $
+  由 $Y = e^X$ 知 $X = ln Y$，故 $Y$ 的概率密度函数在 $ln Y$ 有意义的部分为：
+  $
+    f_Y (y) &= f_X (ln y) abs((dif y)/(dif x))\
+    &= 1 / sqrt(2 pi) e^(-(ln y)^2"/"2) dot.c 1 / y quad (y>0)\
+  $
+  故 $Y$ 的概率密度函数为：
+  $
+    f_Y (y) = cases(
+      display(1 / (y sqrt(2 pi)) e^(-(ln y)^2"/"2) ) \,quad& y>0\,,
+      0 \,quad& "其他".
+    )
+  $
+
+  *(2)* 对 $Z = ln abs(X)$ 有
+  $
+    F_Z (z) &= P{Z <= z} = P{Z <= ln abs(x)}\
+    &= P{-x <= e^Z <= x} = F_X (e^Z) - F_X (-e^Z)
+  $
+  故求导得：
+  $
+    f_Z (z) &= (f_X (e^z)  + f_X (-e^z)) e^z\
+    &= 1/sqrt(2pi) exp(-e^(2z)/2) dot.c 2 dot.c e^z\
+    &= sqrt(2/pi) exp(z - e^(2z)/2)
+  $
 ]
 
 == 习题三
