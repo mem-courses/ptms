@@ -95,11 +95,38 @@
   $
   *(3)* 根据 $Z=abs(X)$ 可知 $Z$ 的概率分布函数为：
   $
-  F_Z (z) = P{Z<=z} = P{abs(X) <= z} = P{-z <= X <= z}
+    F_Z (z) = P{Z<=z} = P{abs(X) <= z} = P{-z <= X <= z}
   $
   由题意知 $X$ 的概率分布函数为：
   $
-  
+    F_X (
+      x
+    ) = cases(
+      0\,quad& x < -1\,,
+      display(- 1 / 27 x^3 + 4 / 9 x + 11/27)\,quad& -1 <= x <= 2\,,
+      1\,quad& x > 2.,
+    )
+  $
+  由上文知：$F_Z (z) = F_X (z) - F_X (-z)$，代入得：
+  $
+    F_Z (
+      z
+    ) = cases(
+      0\,quad& z < 0\,,
+      display(-2/ 27 z^3 + 8 / 9 z)\,quad& 0 <= z < 1\,,
+      display(- 1 / 27 x^3 + 4 / 9 x + 11/27)\,quad& 1<=z<2\,,
+      1\,quad& z >= 2.
+    )
+  $
+  对其求导得 $Z$ 的概率密度函数：
+  $
+    f_Z (
+      z
+    ) = cases(
+      display(-2/ 9 z^2 + 8 / 9)\,quad& 0 <= z < 1\,,
+      display(- 1 / 9 z^2 + 4 / 9)\,quad& 1<=z<2\,,
+      0\,quad& "其他".
+    )
   $
 ]
 
