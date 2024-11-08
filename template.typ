@@ -288,3 +288,5 @@
 }
 
 #let correction(it) = named_block(it, name: "Correction", color: rgb(216, 58, 49))
+
+#let int = math.integral
