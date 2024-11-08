@@ -150,7 +150,29 @@
   设一系统由三个相互独立的、正常工作时间分别为 $X_1, X_2, X_3$ 的子系统组成（如图所示），且 $X_i (i = 1,2,3)$ 均服从参数为 $lambda$ 的指数分布，求该系统正常工作时间 $T$ 的分布函数 $F_T (t)$ 及密度函数 $f_T (t)$。
   #align(center, image("images/2024-11-07-13-32-03.png", width: 50%))
 ][
-  由已知，$T=min(max(X_1,X_2), X_3)$。
+  由已知，$T=min(max(X_1,X_2), X_3)$，故：
+  $
+    F_T (x) &= 1 - (1 - F_(X_1) (x) F_(X_2) (x)) (1 - F_(X_3) (x))\
+    &= 1 - (1 - (1 - e^(-x lambda))^2) e^(-x lambda) \
+    &= 1 - 2 e^(-2 x lambda) + e^(-3 x lambda) quad (x > 0)
+  $
+  求导得：
+  $
+    f_T (x) = 4 lambda e^(-2 x lambda) - 3 lambda e^(-3 x lambda) quad (x > 0)
+  $
+  综上所述，
+  $
+    F_T (x) &= cases(
+      1 - 2 e^(-2 x lambda) + e^(-3 x lambda)\, quad& x > 0\,,
+      0\, quad & x <= 0\,
+    )\
+    f_T (
+      x
+    ) &= cases(
+      4 lambda e^(-2 x lambda) - 3 lambda e^(-3 x lambda) \, quad & x > 0\,,
+      0\, quad & x <=0 .,
+    )
+  $
 ]
 
 #hw("习题三 B10")[
@@ -163,7 +185,26 @@
   $
   记 $Z = X + Y$，求 $Z$ 的密度函数。
 ][
-
+  由于 $Z=X+Y$，可知
+  $
+    f_Z (z) = int_(-oo)^(+oo) f(x,z-x) dif x
+  $
+  故：
+  $
+    f_Z (
+      z
+    ) &= cases(
+      display(int_z^1 (3-x-(z-x))/3 dif x) \,quad& 0 <= z < 1\,,
+      display(int_0^1 (3-x-(z-x))/3 dif x) \,quad& 1 <= z < 2\,,
+      display(int_0^z (3-x-(z-x))/3 dif x) \,quad& 2 <= z < 3\,,
+      0 \,quad& "其他"\,,
+    ) \ &= cases(
+      display((-t^2 + 3t)/3) \,quad& 0 <= z < 1\,,
+      display((-t + 3)/3) \,quad& 1 <= z < 2\,,
+      display((-t^2 + 6t - 9)/3) \,quad& 2 <= z < 3\,,
+      0 \,quad& "其他".
+    )
+  $
 ]
 
 #hw("习题三 B11")[
@@ -178,34 +219,38 @@
     p=1 / 2 times 3 / 4 + 1 / 2 times 0 = 3 / 8
   $
 
-  *(2)* 设购买 8 kg 时花费的价格为 $Z_1$，购买 10 kg 时花费的价格为 $Z_2$，则两者的概率分布函数为：
+  *(2)* 设购买 8 kg 时花费的价格为 $Z_1$，购买 10 kg 时花费的价格为 $Z_2$，则两者的概率密度函数为：
   $
-    F_(Z_1) (
-      z
-    ) &= cases(
-      0\, quad& z < 48\,,
-      display(z/16-3)\, quad& 48<= z <= 64\,,
-      1\, quad& z > 64.,
+    f_(Z_1) (z) &= cases(
+      display(1/16)\, quad& 48<= z <= 64\,,
+      0 \, quad& "其他".
     ) \
-    F_(Z_2) (
-      z
-    ) &= cases(
-      0\, quad& z < 60\,,
-      display(z/20-3)\, quad& 60 <= z <= 80\,,
-      1\, quad& z > 80.,
+    f_(Z_2) (z) &= cases(
+      display(1/20)\, quad& 60 <= z <= 80\,,
+      0 \, quad& "其他".
     )
   $
-  两者分别乘以 $0.5$ 的系数并求和即可得到 $Z$ 的分布函数：
+  两者分别乘以 $0.5$ 的系数并求和即可得到 $Z$ 的密度函数：
+  $
+    f_Z (
+      z
+    ) = cases(
+      display(1/32) \, quad& 48 <= z < 60\,,
+      display(9/160)\, quad& 60 <= z < 64\,,
+      display(1/80) \, quad& 64 <= z < 80\,,
+      0 \, quad& "其他".
+    )
+  $
+  积分可得概率分布函数：
   $
     F_Z (
       z
     ) = cases(
-      0\, quad& z < 48\,,
-      display(z/32 - 3/2) \, quad& 48 <= z < 60\,,
-      display((9z)/160 - 3)\, quad& 60 <= z < 64\,,
-      display(z / 40 - 3/2) \, quad& 64 <= z < 80\,,
-      1 \, quad& z > 80.,
+      0 \,quad& z < 48\,,
+      display(z/32 - 3/2) \,quad& 48<=z<60\,,
+      display((9z)/160 - 3) \,quad& 60<=z<64\,,
+      display(z/40 - 1) \,quad& 64<=z<80\,,
+      1 \,quad& z >= 80.
     )
   $
-  !! 这个不对
 ]
