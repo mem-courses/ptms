@@ -100,15 +100,26 @@
 
   *(2)* 先考察其相关性：
   $
-    E(X) = 0, quad D(X) = 1,
-    E(xi)
+    E(X) = 0, quad D(X) = 1,\
+    E(xi) = 0, quad D(xi) = 1,\
   $
+  $
+    E(X xi) &= E(X^2 Y) = p E(X^2) +(1-p) E(-X^2) \
+    &= 2p - 1,\
+  $
+  故相关系数为：
+  $
+    rho_(X xi) = ("Cov"(X, xi)) / (sqrt(D(X) D(xi))) = 2p - 1.
+  $
+  故当 $p=1/2$ 时，$X$ 与 $xi$ 不相关；当 $p>1/2$ 时，$X$ 与 $xi$ 正相关；当 $p<1/2$ 时，$X$ 与 $xi$ 负相关。
+
+  而由于 $xi = X cdot Y$ 且 $0<p<1$，显然 $X$ 与 $xi$ 是不独立的。
 ]
 
 #hw([习题四 B33])[
   已知三维正态变量 $bold(X) = (X_1, X_2, X_3)^upright(T) sim N(bold(a), bold(B))$，其中
   $
-    a = (0,0,1)^T, quad bold(B) = mat(
+    bold(a) = mat(0,0,1)^T, quad bold(B) = mat(
       1,2,-1;
       2,16,0;
       -1,0,4
@@ -119,11 +130,44 @@
   *(2)* 判别 $X_1, X_2, X_3$ 的相关性与独立性；
 
   *(3)* 若 $Y_1 = X_1 - X_2,space Y_2 = X_3 - X_1$，求 $bold(Y) = (Y_1, Y_2)^upright(T)$ 的分布。
-][]
+][
+  *(1)* 根据多元正态分布的性质：
+  $
+    bold(B) = mat(
+      sigma_1^2, sigma_1 sigma_2, sigma_1 sigma_3;
+      sigma_2 sigma_1, sigma_2^2, sigma_2 sigma_3;
+      sigma_3 sigma_1, sigma_3 sigma_2, sigma_3^2
+    ).
+  $
+  所以 $X_1 sim N(0, 1)$，$X_2 sim N(0, 16)$，$X_3 sim N(1, 4)$。
+
+  *(2)* $X_1$ 与 $X_2$ 相关且不独立；$X_1$ 与 $X_3$ 相关且不独立；$X_2$ 与 $X_3$ 不相关且独立。
+
+  *(3)* 设 $bold(Y) = bold(C) bold(X)$，可知：
+  $
+    bold(C) = mat(
+      1, -1, 0;
+      -1, 0, 1;
+    ).
+  $
+  根据多元正态分布的性质知：$bold(Y) sim N(bold(C) bold(a), bold(C) bold(B) bold(C)^upright(T))$。故，只需计算：
+  $
+    bold(a)' = bold(C) bold(a) = mat(0, 1)^upright(T)\
+    bold(B)' = bold(C) bold(B) bold(C)^upright(T) = mat(
+      13, 0;
+      0, 7
+    )
+  $
+]
 
 #hw([习题四 B34])[
   设某一煤矿一天的产煤量 $X$ (以 $10^4$ t 计) 服从正态分布 $N(1.5, 0.1^2)$。设每天产量相互独立，一个月按 30 天计，求一个月总产量超过 $46 times 10^4$ t 的概率。
-][]
+][
+  30 天产煤量的和 $S$ 服从正态分布 $N(1.5 times 30, 0.1^2 times 30)$，即 $S sim N(45, 0.3)$，则：
+  $
+    P{S>46} = 1 - Phi(sqrt(1/0.3)) = 1 - Phi(sqrt(10/3))
+  $
+]
 
 #hw([习题五 B3])[
   设随机变量 $X_i$ 的密度函数为
