@@ -147,10 +147,10 @@
     #problem_counter.update(x => (x + 1))
     #block(inset: 0.6em, stroke: 0.5pt + gray, radius: 0.3em, fill: luma(250), width: 100%)[
       #hl[#name:]
+      #h(0.2em)
       #it#fake_par#fake_par
     ]
     #jt
-    // #v(-0.25em)
   ]
 }
 
@@ -242,7 +242,7 @@
 #let parts(columns: 1, gutter: 1em, ..it) = {
   let buffer = ()
   for (id, sol) in it.named() {
-    buffer.push(align(right, [#v((gutter - 1em) / 2)#hl(id+".")#h(0.2em)]))
+    buffer.push(align(right, [#v((gutter - 1em) / 2)#hl(id + ".")#h(0.2em)]))
     buffer.push(block(width: 100%, breakable: false, sol))
   }
   v((gutter - 1em) / 2)
@@ -293,3 +293,6 @@
 #let cdot = math.dot.c
 #let cdots = math.dots.c
 #let Var = math.text("Var")
+#let sim = math.space.thin + math.text("~") + math.space.thin
+#let pm = math.plus.minus
+#let mp = math.minus.plus

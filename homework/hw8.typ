@@ -179,12 +179,12 @@
   $
   依题意又有：
   $
-    E(abs(X)) &= int_(-oo)^(+oo) abs(x) e^(-abs(x)) dif x
+    E(abs(X)) &= int_(-oo)^(+oo) abs(x) dot 1/2 e^(-abs(x)) dif x
     = 2 int_(0)^(+oo) x e^(-x) dif x\
     &= lr((-(x+1)e^(-x))|)_0^(+oo) = 1
   $
   $
-    E(abs(X)^2) = E(X^2) = 2
+    ==>E(abs(X)^2) = E(X^2) = 2
   $
   故
   $
