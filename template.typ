@@ -14,6 +14,8 @@
 #let par-margin = 0.8em
 #let fake_par = [#text()[#v(0pt, weak: true)];#text()[#h(0em)]]
 #let nega_par = v(-par-margin * 2)
+#let hole_par = v(1em)
+#let half_par = v(1em / 2)
 
 #let project(
   course: "",
@@ -294,6 +296,6 @@
 #let cdot = math.dot.c
 #let cdots = math.dots.c
 #let Var = math.text("Var")
-#let sim = math.space.thin + math.text("~") + math.space.thin
+#let sim = math.tilde
 #let pm = math.plus.minus
 #let mp = math.minus.plus
