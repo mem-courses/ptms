@@ -13,6 +13,7 @@
 #let force-indent = 2em
 #let par-margin = 0.8em
 #let fake_par = [#text()[#v(0pt, weak: true)];#text()[#h(0em)]]
+#let nega_par = v(-par-margin * 2)
 
 #let project(
   course: "",
