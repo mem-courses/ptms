@@ -305,11 +305,11 @@
   设 $X_1, X_2, dots.c, X_n$ 是来自下列总体 $X$ 的简单随机样本，求各总体中未知参数 $theta$ 的矩估计量和极大似然估计量，并对所获得的样本值，求参数 $theta$ 的矩估计值和极大似然估计值：
 
   *(1)* $display(f(x; theta) = cases(
-		2^(-theta) x^(theta-1)\, quad& 0 < x < 2\,,
+		2^(-theta) theta x^(theta-1)\, quad& 0 < x < 2\,,
 		0\, quad& "其他"\,,
 	)\, quad theta > 0)$；
 
-  #grid(  
+  #grid(
     columns: 2,
     [样本值：$quad$],
     [
@@ -328,6 +328,30 @@
       1.65, -0.64, -1.05, 0.41, -0.19.
     ],
   )
-][
 
+  *(3)* $f(x; theta) = display(cases(
+    display(1/(2-theta))\, quad theta <= x < 2\,,
+    0\, quad "其他"\,
+  )quad theta < 2\;)$
+
+  #grid(
+    columns: 2,
+    [样本值：$quad$],
+    [
+      0.95, 0.63, 1.69, 1.97, 0.84,\
+      1.81, 0.63, 0.35, 1.34, 0.82.
+    ],
+  )
+][
+  *(1)* 计算 $E(X)$：
+  $
+    & E(X) = int_0^2 x cdot 2^(-theta) x^(theta - 1) dif x
+    = lr( (2^(-theta) theta x^(theta + 1)) / (theta + 1) |)_0^2 = 1 / theta = (2 theta) / (theta + 1)\
+    ==>& theta = (E(X)) / (2 - E(X))
+  $
+  用样本均值 $overline(X)$ 估计 $E(X)$，得：
+  $
+    hat(theta)_1 = (overline(X)) / (2 - overline(X)) = 0.503 / (2- 0.503) = 0.3360
+  $
 ]
+
