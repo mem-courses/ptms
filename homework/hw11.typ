@@ -353,5 +353,34 @@
   $
     hat(theta)_1 = (overline(X)) / (2 - overline(X)) = 0.503 / (2- 0.503) = 0.3360
   $
+
+  *(2)* 计算 $E(X)$：
+  $
+    E(X) &= int_(-oo)^(+oo) x / (2 theta) e^(-abs(x) / theta) dif x
+    = 0
+  $
+  与参数 $theta$ 无关，故计算 $E(X^2)$：
+  $
+    E(X^2) &= int_(-oo)^(+oo) x^2 / (2 theta) e^(-abs(x) / theta) dif x
+    = int_(0)^(+oo) x^2 / theta e^(-x / theta) dif x \
+    &= theta^2 int_(0)^(+oo) x^2 e^(-x) dif x\
+    &= theta^2 lr(( -(x^2 + 2x + 2) e^(-x) )|)_0^(+oo) \
+    &= 2 theta^2
+  $
+  用 $A_2$ 估计 $E(X^2)$，得：
+  $
+    A_2 = 2 hat(theta)_1^2 ==> hat(theta)_1 = sqrt(1/2 A_2) = 0.4845
+  $
+
+  *(3)* 计算 $E(X)$：
+  $
+    E(X) &= int_(theta)^2 x / (2-theta) dif x
+    = lr(( x^2/(2(2-theta)) )|)_(theta)^2\
+    &= (4-theta^2)/(2(2-theta)) = (2+theta)/2
+  $
+  用 $overline(X)$ 估计 $E(X)$，得：
+  $
+    overline(X) approx (2+hat(theta)_1)/2 ==> hat(theta)_1 = 2 overline(X) - 2 = 0.35
+  $
 ]
 
